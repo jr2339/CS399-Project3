@@ -16,7 +16,10 @@ import android.content.DialogInterface;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.app.Activity;
-
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 
 
@@ -66,7 +69,14 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-
+        if (id == R.id.action_setting){
+            return true;
+        }
+        if (id == R.id.action_sort_date){
+            Collections.sort(shoppingList);
+            lv.setAdapter(adapter);
+            return true;
+        }
         if (id == R.id.action_add){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Add Item");
@@ -75,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    shoppingList.add(preferredCase(input.getText().toString()));
+                    DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+                    Calendar calobj = Calendar.getInstance();
+                    shoppingList.add(preferredCase(df.format(calobj.getTime())+"    "+input.getText().toString())+"*");
                     Collections.sort(shoppingList);
                     storeArrayVal(shoppingList,getApplicationContext());
                     lv.setAdapter(adapter);
@@ -90,7 +102,25 @@ public class MainActivity extends AppCompatActivity {
             builder.show();
             return true;
         }
-
+        if (id == R.id.action_clear){
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setTitle("Clear Entire List");
+            builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    shoppingList.clear();
+                    lv.setAdapter(adapter);
+                }
+            });
+            builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    dialog.cancel();
+                }
+            });
+            builder.show();
+            return true;
+        }
         return super.onOptionsItemSelected(item);
     }
     //return back to the original string at here
