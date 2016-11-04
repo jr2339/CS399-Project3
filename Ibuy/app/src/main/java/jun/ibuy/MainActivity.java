@@ -72,16 +72,24 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         if (id == R.id.action_sort_date){
+            for (int i=0;i<shoppingList.size();i++){
+                String oldString,newString;
+                oldString = shoppingList.get(i);
+                int size = oldString.length();
+                newString = oldString.substring(1,size-1)+ oldString.charAt(0);
+                shoppingList.set(i,newString);
+            }
             Collections.sort(shoppingList);
             lv.setAdapter(adapter);
             return true;
         }
+
         if (id == R.id.action_sort_cost){
             for (int i=0;i<shoppingList.size();i++){
                 String oldString,newString;
                 oldString = shoppingList.get(i);
                 int size = oldString.length();
-                newString = oldString.charAt(size-1)+ oldString.substring(0,size-1);
+                newString = oldString.charAt(size-1) + oldString.substring(0,size-1);
                 shoppingList.set(i,newString);
             }
             Collections.sort(shoppingList);
@@ -100,7 +108,7 @@ public class MainActivity extends AppCompatActivity {
                     //DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
                     DateFormat df = new SimpleDateFormat("dd/MM/yy");
                     Calendar calobj = Calendar.getInstance();
-                    shoppingList.add(preferredCase(df.format(calobj.getTime())+"    "+input.getText().toString()));
+                    shoppingList.add(preferredCase("    "+df.format(calobj.getTime())+"    "+input.getText().toString()));
                     Collections.sort(shoppingList);
                     storeArrayVal(shoppingList,getApplicationContext());
                     lv.setAdapter(adapter);
