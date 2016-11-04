@@ -20,6 +20,7 @@ import java.util.Date;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.lang.String;
 
 
 
@@ -34,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        //Source code from the tutor
 
         shoppingList = getArrayVal(getApplicationContext());
 
@@ -77,17 +76,31 @@ public class MainActivity extends AppCompatActivity {
             lv.setAdapter(adapter);
             return true;
         }
+        if (id == R.id.action_sort_cost){
+            for (int i=0;i<shoppingList.size();i++){
+                String oldString,newString;
+                oldString = shoppingList.get(i);
+                int size = oldString.length();
+                newString = oldString.charAt(size-1)+ oldString.substring(0,size-1);
+                shoppingList.set(i,newString);
+            }
+            Collections.sort(shoppingList);
+            lv.setAdapter(adapter);
+            return true;
+        }
+
         if (id == R.id.action_add){
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Add Item");
+            builder.setTitle("Add Item and Cost");
             final EditText input = new EditText(this);
             builder.setView(input);
             builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+                    //DateFormat df = new SimpleDateFormat("dd/MM/yy HH:mm:ss");
+                    DateFormat df = new SimpleDateFormat("dd/MM/yy");
                     Calendar calobj = Calendar.getInstance();
-                    shoppingList.add(preferredCase(df.format(calobj.getTime())+"    "+input.getText().toString())+"*");
+                    shoppingList.add(preferredCase(df.format(calobj.getTime())+"    "+input.getText().toString()));
                     Collections.sort(shoppingList);
                     storeArrayVal(shoppingList,getApplicationContext());
                     lv.setAdapter(adapter);
