@@ -1,21 +1,27 @@
 package jun.ibuy;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
-import java.util.*;
-import android.widget.*;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
-import android.app.AlertDialog;
-import android.widget.EditText;
-import android.content.DialogInterface;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.app.Activity;
 
 
 
@@ -26,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
     ListView lv = null;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -53,14 +59,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(Menu menu){
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onOptionsItemSelected(MenuItem item){
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
@@ -94,15 +100,15 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     //return back to the original string at here
-    public static String preferredCase(String original)
-    {
+
+    public static String preferredCase(String original){
         if (original.isEmpty())
             return original;
 
         return original.substring(0, 1).toUpperCase() + original.substring(1).toLowerCase();
     }
-    public static void storeArrayVal( ArrayList<String> inArrayList, Context context)
-    {
+
+    public static void storeArrayVal( ArrayList<String> inArrayList, Context context){
         Set<String> WhatToWrite = new HashSet<String>(inArrayList);
         SharedPreferences WordSearchPutPrefs = context.getSharedPreferences("dbArrayValues", Activity.MODE_PRIVATE);
         SharedPreferences.Editor prefEditor = WordSearchPutPrefs.edit();
@@ -110,8 +116,7 @@ public class MainActivity extends AppCompatActivity {
         prefEditor.commit();
     }
 
-    public static ArrayList getArrayVal( Context dan)
-    {
+    public static ArrayList getArrayVal( Context dan){
         SharedPreferences WordSearchGetPrefs = dan.getSharedPreferences("dbArrayValues",Activity.MODE_PRIVATE);
         Set<String> tempSet = new HashSet<String>();
         tempSet = WordSearchGetPrefs.getStringSet("myArray", tempSet);
