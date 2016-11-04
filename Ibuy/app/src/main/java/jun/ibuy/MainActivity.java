@@ -3,23 +3,12 @@ package jun.ibuy;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.view.*;
 import java.util.*;
 import android.widget.*;
-import java.util.HashSet;
-import java.util.Set;
-import android.app.AlertDialog;
-import android.widget.EditText;
-import android.content.DialogInterface;
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.app.Activity;
-import java.util.Date;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
+import android.app.*;
+import android.content.*;
+import java.text.*;
 import java.lang.String;
 
 
