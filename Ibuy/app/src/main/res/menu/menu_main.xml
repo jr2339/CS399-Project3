@@ -3,6 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="jun.ibuy.MainActivity">
 
+    <item android:id="@+id/action_setting"
+    android:orderInCategory="100"
+    android:title="Setting"
+    app:showAsAction="never" />
+
+    <item android:id="@+id/action_sort_date"
+        android:orderInCategory="200"
+        android:title="DateSorted"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_sort_cost"
+        android:orderInCategory="300"
+        android:title="CostSorted"
+        app:showAsAction="never" />
+
+    <item android:id="@+id/action_clear"
+        android:orderInCategory="400"
+        android:title="Clear"
+        app:showAsAction="never" />
 
     <item android:id="@+id/action_add"
         android:icon="@drawable/ic_add_circle_white_48dp"
