@@ -8,7 +8,7 @@ Provide basic iBuy functionality for personal use. General kinds of things a bas
 - [x]	viewing items to be purchased
 - [x]	somehow checking off/removing items
 - [x]	allow entry/sorting of buying list by date, urgency, estimated cost)
-- [ ] Reasonable quality UI --- clean, aesthetic, smooth function across implemented devices. Serious points here.
+- [x] Reasonable quality UI --- clean, aesthetic, smooth function across implemented devices. Serious points here.
 - [x] Basic Test Harness. The basic version doesn't network its state dynamically, just saves app state locally when you exit..
 
 - [ ]	Neat ways to speed item entry, e.g., "most common items"
