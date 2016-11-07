@@ -2,5 +2,6 @@
 *
 
 # Just include the working app directory
+!.gitignore
 !Ibuy2/app/src
 !Ibuy/app/src
