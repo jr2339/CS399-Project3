@@ -1,46 +1,6 @@
-Ibuy/.idea/compiler.xml
-Ibuy/.idea/encodings.xml
-Ibuy/.idea/gradle.xml
-Ibuy/.idea/misc.xml
-Ibuy/.idea/modules.xml
-Ibuy/.idea/runConfigurations.xml
-Ibuy/.idea/compiler.xml
-Ibuy/.idea/gradle.xml
-Ibuy/.idea/misc.xml
+# Ignore everything
+*
 
-#built application files
-*.apk
-*.ap_
-
-# files for the dex VM
-*.dex
-
-# Java class files
-*.class
-
-# generated files
-bin/
-gen/
-
-# Local configuration file (sdk path, etc)
-local.properties
-
-# Windows thumbnail db
-Thumbs.db
-
-# OSX files
-.DS_Store
-
-# Eclipse project files
-.classpath
-.project
-
-# Android Studio
-*.iml
-.idea
-#.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
-.gradle
-build/
-
-#NDK
-obj/
+# Just include the working app directory
+!Ibuy2/app/src
+!Ibuy/app/src
