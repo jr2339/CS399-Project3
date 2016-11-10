@@ -49,7 +49,7 @@ public class DisplayItemActivity extends AppCompatActivity {
         String formattedItems = Utils.formatNumber(total_Item);
 
         totalCost.setText("Total Cost: " + formattedValue);
-        totalItems.setText("Total Foods: " + formattedItems);
+        totalItems.setText("Total Items: " + formattedItems);
 
         for (int i = 0; i < foodsFromDB.size(); i++){
 

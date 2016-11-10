@@ -9,7 +9,7 @@
     <string name="submit_text">Submit</string>
     <string name="delete_item">Delete Item</string>
     <string name="share_title">share</string>
-    <string name="item_total_text">Total Calories</string>
+    <string name="item_total_text">Total Cost</string>
     <string name="cost_text">$</string>
-    <string name="food_items_num">Food Items:</string>
+    <string name="items_num">Items:</string>
 </resources>
