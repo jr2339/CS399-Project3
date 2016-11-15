@@ -70,10 +70,12 @@ public class ItemDetailsActivity extends AppCompatActivity {
         dataString.append(" Eaten on: " + date);
 
         Intent i = new Intent(Intent.ACTION_SEND);
-        i.setType("message/rfc822");
+//        i.setType("message/rfc822");
+        i.setType("text/plain");
         i.putExtra(Intent.EXTRA_SUBJECT, "My Caloric Intake");
         i.putExtra(Intent.EXTRA_EMAIL, new String[] {"recipient@example.com"});
         i.putExtra(Intent.EXTRA_TEXT, dataString.toString());
+
 
         try{
 
