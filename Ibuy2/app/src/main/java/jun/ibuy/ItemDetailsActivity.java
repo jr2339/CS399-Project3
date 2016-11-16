@@ -1,7 +1,6 @@
 package jun.ibuy;
 
 import android.app.AlertDialog;
-import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -66,20 +65,25 @@ public class ItemDetailsActivity extends AppCompatActivity {
         dataString.append(" costs: " + cos + "\n");
         dataString.append(" Created on: " + date);
 
-        Intent i = new Intent(Intent.ACTION_SEND);
-        i.setType("message/rfc822");
-        i.putExtra(Intent.EXTRA_SUBJECT, "My Caloric Intake");
-        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"recipient@example.com"});
-        i.putExtra(Intent.EXTRA_TEXT, dataString.toString());
+        Intent intent2 = new Intent(); intent2.setAction(Intent.ACTION_SEND);
+        intent2.setType("text/plain");
+        intent2.putExtra(Intent.EXTRA_TEXT, "Your text here" );
+        startActivity(Intent.createChooser(intent2, "Share via"));
 
-        try {
-
-            startActivity(Intent.createChooser(i, "Send mail..."));
-
-        } catch (ActivityNotFoundException e) {
-            Toast.makeText(getApplicationContext(), "Please install email client before sending",
-                    Toast.LENGTH_LONG).show();
-        }
+//        Intent i = new Intent(Intent.ACTION_SEND);
+//        i.setType("message/rfc822");
+//        i.putExtra(Intent.EXTRA_SUBJECT, "My Caloric Intake");
+//        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"recipient@example.com"});
+//        i.putExtra(Intent.EXTRA_TEXT, dataString.toString());
+//
+//        try {
+//
+//            startActivity(Intent.createChooser(i, "Send mail..."));
+//
+//        } catch (ActivityNotFoundException e) {
+//            Toast.makeText(getApplicationContext(), "Please install email client before sending",
+//                    Toast.LENGTH_LONG).show();
+//        }
     }
 
     @Override
