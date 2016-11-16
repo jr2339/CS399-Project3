@@ -83,34 +83,6 @@
             android:imeOptions="actionDone"
             />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gender"
-            />
-
-        <RadioGroup
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            >
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Male"
-                android:id="@+id/ismale"
-                />
-
-            <RadioButton
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Female"
-                android:id="@+id/isfemale"
-                />
-
-        </RadioGroup>
-
-
 
         <TextView
             android:layout_width="match_parent"

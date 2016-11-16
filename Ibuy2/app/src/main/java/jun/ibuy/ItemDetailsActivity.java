@@ -1,28 +1,25 @@
 package jun.ibuy;
 
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.TextView;
 import android.app.AlertDialog;
 import android.content.ActivityNotFoundException;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
-
 
 
 public class ItemDetailsActivity extends AppCompatActivity {
 
     private TextView itemName, costs, dateTaken;
-    private Button shareButton;
     private int item_id;
-
-
+    private Button shareButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,27 +62,25 @@ public class ItemDetailsActivity extends AppCompatActivity {
         String cos = costs.getText().toString();
         String date = dateTaken.getText().toString();
 
-        dataString.append(" Food: " + name + "\n");
+        dataString.append(" Item: " + name + "\n");
         dataString.append(" costs: " + cos + "\n");
-        dataString.append(" Eaten on: " + date);
+        dataString.append(" Created on: " + date);
 
         Intent i = new Intent(Intent.ACTION_SEND);
         i.setType("message/rfc822");
         i.putExtra(Intent.EXTRA_SUBJECT, "My Caloric Intake");
-        i.putExtra(Intent.EXTRA_EMAIL, new String[] {"recipient@example.com"});
+        i.putExtra(Intent.EXTRA_EMAIL, new String[]{"recipient@example.com"});
         i.putExtra(Intent.EXTRA_TEXT, dataString.toString());
 
-        try{
+        try {
 
             startActivity(Intent.createChooser(i, "Send mail..."));
 
-        }catch (ActivityNotFoundException e) {
+        } catch (ActivityNotFoundException e) {
             Toast.makeText(getApplicationContext(), "Please install email client before sending",
                     Toast.LENGTH_LONG).show();
         }
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -129,10 +124,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
             });
             alert.show();
         }
-
-
-
-
 
 
         return super.onOptionsItemSelected(item);

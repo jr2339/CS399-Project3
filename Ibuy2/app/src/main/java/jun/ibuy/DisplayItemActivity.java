@@ -31,7 +31,7 @@ public class DisplayItemActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.list);
         totalCost = (TextView) findViewById(R.id.totalAmountTextView);
         totalItems = (TextView) findViewById(R.id.totalItemsTextView);
-
+        listView.setDivider(null);
         refreshData();
     }
 
