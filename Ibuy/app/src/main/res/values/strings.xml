@@ -1,8 +1,0 @@
-<resources>
-    <string name="app_name">Ibuy</string>
-    <string name="action_settings">Settings</string>
-    <string name="action_sort_date">Date Sorted</string>
-    <string name="action_sort_cost">Cost Sorted</string>
-    <string name="action_add">Add Item</string>
-    <string name="action_clear">Clear</string>
-</resources>
